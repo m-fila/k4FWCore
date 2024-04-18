@@ -84,7 +84,7 @@ template <typename T> void MetaDataHandle<T>::put(T value) {
     throw GaudiException("MetaDataHandle policy violation", "Put for non-writing MetaDataHandle not allowed",
                          StatusCode::FAILURE);
   // check whether we are in the proper State
-  // put is only allowed in the initalization
+  // put is only allowed in the initialization
   if (m_podio_data_service->targetFSMState() == Gaudi::StateMachine::RUNNING) {
     throw GaudiException("MetaDataHandle policy violation", "Put cannot be used during the event loop",
                          StatusCode::FAILURE);
