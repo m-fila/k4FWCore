@@ -106,6 +106,11 @@ StatusCode PodioOutput::execute(const EventContext&) const {
 *
 */
 StatusCode PodioOutput::finalize() {
+  fatal() << "Deprecated - use IOSvc instead. See "
+             "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+             "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc."
+          << endmsg;
+
   if (Gaudi::Algorithm::finalize().isFailure())
     return StatusCode::FAILURE;
   //// prepare job options metadata ///////////////////////

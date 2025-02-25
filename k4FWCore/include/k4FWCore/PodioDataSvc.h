@@ -39,7 +39,10 @@ template <typename T> class MetaDataHandle;
  *
  *  @author B. Hegner
  */
-class PodioDataSvc : public DataSvc {
+class [[deprecated(
+    "Use IOSvc instead. See "
+    "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+    "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc.")]] PodioDataSvc : public DataSvc {
   template <typename T> friend class MetaDataHandle;
   friend class PodioOutput;
   friend class Lcio2EDM4hepTool;

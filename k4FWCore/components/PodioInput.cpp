@@ -17,6 +17,7 @@
  * limitations under the License.
  */
 #include "PodioInput.h"
+#include <GaudiKernel/StatusCode.h>
 #include "Gaudi/Functional/Consumer.h"
 
 #include "k4FWCore/PodioDataSvc.h"
@@ -167,6 +168,14 @@ StatusCode PodioInput::initialize() {
   }
 
   return StatusCode::SUCCESS;
+}
+
+StatusCode PodioInput::finalize() {
+  fatal() << "Deprecated - use IOSvc instead. See "
+             "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+             "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc."
+          << endmsg;
+  return Consumer::finalize();
 }
 
 void PodioInput::operator()() const {

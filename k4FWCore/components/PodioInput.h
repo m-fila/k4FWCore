@@ -19,6 +19,7 @@
 #ifndef FWCORE_PODIOINPUT_H
 #define FWCORE_PODIOINPUT_H
 // Gaudi
+#include <GaudiKernel/StatusCode.h>
 #include "Gaudi/Functional/Consumer.h"
 #include "Gaudi/Property.h"
 
@@ -37,12 +38,17 @@ class PodioDataSvc;
 
 using BaseClass_t = Gaudi::Functional::Traits::BaseClass_t<Gaudi::Algorithm>;
 
-class PodioInput final : public Gaudi::Functional::Consumer<void(), BaseClass_t> {
+class [[deprecated(
+    "Use IOSvc instead. See "
+    "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+    "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc.")]] PodioInput final
+    : public Gaudi::Functional::Consumer<void(), BaseClass_t> {
 public:
   PodioInput(const std::string& name, ISvcLocator* svcLoc);
   void operator()() const override;
 
   StatusCode initialize() final;
+  StatusCode finalize() final;
 
 private:
   template <typename T> void maybeRead(std::string_view collName) const;

@@ -22,7 +22,10 @@
 
 #include "k4FWCore/PodioDataSvc.h"
 
-class k4DataSvc : public PodioDataSvc {
+class [[deprecated(
+    "Use IOSvc instead. See "
+    "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+    "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc.")]] k4DataSvc : public PodioDataSvc {
 public:
   /// Standard Constructor
   k4DataSvc(const std::string& name, ISvcLocator* svc);

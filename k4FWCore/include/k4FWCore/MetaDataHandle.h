@@ -24,7 +24,7 @@
 #include "k4FWCore/MetadataUtils.h"
 #include "k4FWCore/PodioDataSvc.h"
 
-template <typename T> class MetaDataHandle {
+template <typename T> class [[deprecated("Use MetadataSvc instead.")]] MetaDataHandle {
 public:
   MetaDataHandle(const std::string& descriptor, Gaudi::DataHandle::Mode a);
   MetaDataHandle(const Gaudi::DataHandle& handle, const std::string& descriptor, Gaudi::DataHandle::Mode a);

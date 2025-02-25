@@ -83,6 +83,11 @@ StatusCode PodioDataSvc::reinitialize() {
 }
 /// Service finalization
 StatusCode PodioDataSvc::finalize() {
+  fatal() << "Deprecated - use IOSvc instead. See "
+             "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+             "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc."
+          << endmsg;
+
   m_cnvSvc = nullptr;  // release
   DataSvc::finalize().ignore();
   return StatusCode::SUCCESS;

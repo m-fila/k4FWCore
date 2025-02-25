@@ -28,7 +28,10 @@
 // forward declarations
 class PodioDataSvc;
 
-class PodioOutput : public Gaudi::Algorithm {
+class [[deprecated(
+    "Use IOSvc instead. See "
+    "https://key4hep.github.io/key4hep-doc/how-tos/k4fwcore/doc/"
+    "PodioInputOutput.html#migrating-from-the-legacy-k4datasvc.")]] PodioOutput : public Gaudi::Algorithm {
 public:
   /// Constructor.
   PodioOutput(const std::string& name, ISvcLocator* svcLoc);
